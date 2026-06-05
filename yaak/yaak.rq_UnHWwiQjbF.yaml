@@ -1,0 +1,43 @@
+type: http_request
+model: http_request
+id: rq_UnHWwiQjbF
+createdAt: 2026-06-04T09:58:49.661610
+updatedAt: 2026-06-04T10:36:56.749830
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_VBs9jL2uqi
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "name":"ZHENJIE",
+      "password":"1289eugdb1fh@!",
+      "settings":{}
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: ke8b9yyCsM
+method: POST
+name: Create
+sortPriority: -1780563829866.0
+url: http://127.0.0.1:8080/api/users/create
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

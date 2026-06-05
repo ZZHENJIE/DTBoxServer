@@ -1,0 +1,62 @@
+use crate::{handlers, response::APIResponse, state::AppState};
+use axum::{Router, middleware, routing};
+use std::sync::Arc;
+
+pub fn export(state: Arc<AppState>) -> Router {
+    Router::new()
+        .nest(
+            "/api",
+            Router::new()
+                .merge(public())
+                .merge(protected(state.clone()))
+                .merge(
+                    Router::new()
+                        .route("/refresh", routing::get(handlers::refresh_token::refresh))
+                        .layer(middleware::from_fn_with_state(
+                            state.clone(),
+                            crate::middleware::rate_limiter::export,
+                        ))
+                        .layer(middleware::from_fn_with_state(
+                            state.clone(),
+                            crate::middleware::refresh_auth::export,
+                        )),
+                ),
+        )
+        .with_state(state)
+}
+
+pub fn protected(state: Arc<AppState>) -> Router<Arc<AppState>> {
+    Router::new()
+        .route(
+            "/users/me",
+            routing::get(handlers::users::get_me).patch(handlers::users::update_me),
+        )
+        .route(
+            "/users/change_password",
+            routing::patch(handlers::users::change_password),
+        )
+        .route("/users/logout", routing::post(handlers::users::logout))
+        .layer(middleware::from_fn_with_state(
+            state.clone(),
+            crate::middleware::rate_limiter::export,
+        ))
+        .layer(middleware::from_fn_with_state(
+            state.clone(),
+            crate::middleware::access_auth::export,
+        ))
+}
+
+pub fn public() -> Router<Arc<AppState>> {
+    Router::new()
+        .route("/health", routing::get(health))
+        .route("/users/create", routing::post(handlers::users::create))
+        .route("/users/login", routing::post(handlers::users::login))
+        .route("/test", routing::get(handlers::tools::test::test))
+}
+
+pub async fn health() -> APIResponse<dtbox_core::HealthResult> {
+    APIResponse::success(dtbox_core::HealthResult {
+        status: true,
+        version: env!("CARGO_PKG_VERSION").to_string(),
+    })
+}

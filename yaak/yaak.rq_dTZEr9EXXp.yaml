@@ -1,0 +1,50 @@
+type: http_request
+model: http_request
+id: rq_dTZEr9EXXp
+createdAt: 2026-06-05T08:39:21.067100
+updatedAt: 2026-06-05T08:48:55.362637
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_VBs9jL2uqi
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "old_password":"5089168791",
+      "new_password":"508916879"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MDY0OTgwMywiaWF0IjoxNzgwNjQ4OTAzfQ.5vSfDb9ZNg4zu7X3-IZzUWcuOI6sFaQoWKIuYW6DajQ
+  id: e7B5t600pe
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: aA3JqFNkxf
+- enabled: true
+  name: ''
+  value: ''
+  id: bbJBtzkdxU
+method: PATCH
+name: ChangePassword
+sortPriority: 2000.001
+url: http://127.0.0.1:8080/api/users/change_password
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

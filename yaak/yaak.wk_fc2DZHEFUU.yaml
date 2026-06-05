@@ -1,0 +1,17 @@
+type: workspace
+model: workspace
+id: wk_fc2DZHEFUU
+createdAt: 2026-06-04T09:03:35.104692
+updatedAt: 2026-06-04T09:03:35.104692
+authentication: {}
+authenticationType: null
+description: ''
+headers: []
+name: DTBox
+encryptionKeyChallenge: null
+settingValidateCertificates: true
+settingFollowRedirects: true
+settingRequestTimeout: 0
+settingDnsOverrides: []
+settingSendCookies: true
+settingStoreCookies: true

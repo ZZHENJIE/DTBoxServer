@@ -1,0 +1,41 @@
+type: http_request
+model: http_request
+id: rq_92gXFoJZBT
+createdAt: 2026-06-05T08:52:40.771284
+updatedAt: 2026-06-05T08:53:44.335510
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_VBs9jL2uqi
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MDY1MDQ5OSwiaWF0IjoxNzgwNjQ5NTk5fQ.m3-SkXcMXdNK3qphtVRqT-7tIkzDW2SQM9k6cxQulsU
+  id: 5n5vw4zxJm
+- enabled: true
+  name: ''
+  value: ''
+  id: 66gIDEPRxd
+method: POST
+name: Logout
+sortPriority: 2000.001
+url: http://127.0.0.1:8080/api/users/logout
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

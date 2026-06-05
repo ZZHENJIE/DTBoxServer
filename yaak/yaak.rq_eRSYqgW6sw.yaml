@@ -1,0 +1,50 @@
+type: http_request
+model: http_request
+id: rq_eRSYqgW6sw
+createdAt: 2026-06-05T08:30:58.377158
+updatedAt: 2026-06-05T08:32:11.423527
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_VBs9jL2uqi
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "type":"Avatar",
+      "value":"Hello"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MDY0ODc2MiwiaWF0IjoxNzgwNjQ3ODYyfQ.mM_2x_4gZd52qF3Xr34ARj1Ao6P_LKKZjnBsLxlGvjU
+  id: hyRvSB3buY
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: pEWaKr5sCT
+- enabled: true
+  name: ''
+  value: ''
+  id: TMc9skPRrn
+method: PATCH
+name: UpdateMe
+sortPriority: 2000.001
+url: http://127.0.0.1:8080/api/users/me
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

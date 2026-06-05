@@ -1,0 +1,38 @@
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-only"
+
+[package]
+name = "DTBoxServer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[workspace]
+members = [
+    "crates/core",
+    "crates/server_core",
+    "crates/alpaca_sdk",
+    "crates/finviz_sdk",
+]
+resolver = "2"
+
+[workspace.dependencies]
+tracing = "0.1.44"
+anyhow = "1.0.102"
+serde = "1.0.228"
+serde_json = "1.0.150"
+axum = { version = "0.8.9", features = ["macros"] }
+chrono = { version = "0.4.44", features = ["serde"] }
+sea-orm = { version = "1.1.20", features = ["sqlx-sqlite", "runtime-tokio-rustls", "macros", "with-json", "with-chrono"] }
+tokio = { version = "1.52.3", features = ["full"] }
+reqwest = { version = "0.13.4", features = ["json"] }
+
+[dependencies]
+anyhow = { workspace = true }
+tracing = { workspace = true }
+axum = { workspace = true }
+tokio = { workspace = true }
+clap = { version = "4.6.1", features = ["derive"] }
+dtbox_server_core = { path = "crates/server_core" }

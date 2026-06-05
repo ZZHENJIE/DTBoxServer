@@ -1,0 +1,33 @@
+type: http_request
+model: http_request
+id: rq_RiK4pJ9SRS
+createdAt: 2026-06-04T09:03:49.868949
+updatedAt: 2026-06-05T02:21:18.383864
+workspaceId: wk_fc2DZHEFUU
+folderId: null
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Health
+sortPriority: 1000.0
+url: http://127.0.0.1:8080/api/health
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

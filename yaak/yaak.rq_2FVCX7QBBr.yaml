@@ -1,0 +1,41 @@
+type: http_request
+model: http_request
+id: rq_2FVCX7QBBr
+createdAt: 2026-06-05T03:26:19.157932
+updatedAt: 2026-06-05T08:24:32.443294
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_VBs9jL2uqi
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers:
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MDY0ODc2MiwiaWF0IjoxNzgwNjQ3ODYyfQ.mM_2x_4gZd52qF3Xr34ARj1Ao6P_LKKZjnBsLxlGvjU
+  id: f6rKwhdDvP
+- enabled: true
+  name: ''
+  value: ''
+  id: kXSUkBH25A
+method: GET
+name: GetMe
+sortPriority: 2000.0
+url: http://127.0.0.1:8080/api/users/me
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0
