@@ -39,6 +39,7 @@ pub mod handlers {
         pub mod finviz;
     }
     pub mod tools {
-        pub mod test;
+        pub mod calendar;
+        pub mod timestamp;
     }
 }

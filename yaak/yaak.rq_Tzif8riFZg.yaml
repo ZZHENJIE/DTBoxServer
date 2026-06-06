@@ -1,0 +1,33 @@
+type: http_request
+model: http_request
+id: rq_Tzif8riFZg
+createdAt: 2026-06-06T02:22:11.155618
+updatedAt: 2026-06-06T02:22:58.800232
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_xXXujs37q7
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Timestamp
+sortPriority: 2000.0
+url: http://127.0.0.1:8080/api/tools/timestamp/akamai
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

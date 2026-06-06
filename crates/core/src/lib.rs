@@ -6,6 +6,7 @@ pub mod entity {
 
 pub mod payload {
     pub mod stocks;
+    pub mod tools;
     pub mod users;
 }
 

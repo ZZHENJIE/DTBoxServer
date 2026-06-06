@@ -51,7 +51,14 @@ pub fn public() -> Router<Arc<AppState>> {
         .route("/health", routing::get(health))
         .route("/users/create", routing::post(handlers::users::create))
         .route("/users/login", routing::post(handlers::users::login))
-        .route("/test", routing::get(handlers::tools::test::test))
+        .route(
+            "/tools/timestamp/akamai",
+            routing::get(handlers::tools::timestamp::akamai),
+        )
+        .route(
+            "/tools/calendar/tradingview_economic",
+            routing::post(handlers::tools::calendar::tradingview_economic),
+        )
 }
 
 pub async fn health() -> APIResponse<dtbox_core::HealthResult> {
