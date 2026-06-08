@@ -61,8 +61,8 @@ pub fn public() -> Router<Arc<AppState>> {
         )
 }
 
-pub async fn health() -> APIResponse<dtbox_core::HealthResult> {
-    APIResponse::success(dtbox_core::HealthResult {
+pub async fn health() -> APIResponse<core_domain::result::HealthResult> {
+    APIResponse::success(core_domain::result::HealthResult {
         status: true,
         version: env!("CARGO_PKG_VERSION").to_string(),
     })

@@ -1,11 +1,10 @@
-use sea_orm::JsonValue;
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct CreatePayload {
     pub name: String,
     pub password: String,
-    pub settings: JsonValue,
+    pub settings: crate::UserSettings,
 }
 
 #[derive(Debug, Deserialize)]
@@ -18,7 +17,7 @@ pub struct LoginPayload {
 #[serde(tag = "type", content = "value")]
 pub enum UpdateUserPayload {
     Name(String),
-    Settings(JsonValue),
+    Settings(crate::UserSettings),
     Avatar(String),
 }
 

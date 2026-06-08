@@ -1,10 +1,8 @@
 use std::sync::Arc;
 
 use axum::{Extension, Json, extract::State, http::header, response::IntoResponse};
-use dtbox_core::{
-    entity::{refresh_token, users},
-    payload, result,
-};
+use core_db::entity::{refresh_token, users};
+use core_domain::{payload, result};
 
 use crate::{error::ErrorCode, response::APIResponse, state::AppState, utils};
 
@@ -38,7 +36,7 @@ pub async fn create(
                 password_hash: sea_orm::Set(password_hash),
                 avatar: sea_orm::Set(String::new()),
                 role: sea_orm::Set(users::Role::User),
-                settings: sea_orm::Set(payload.settings),
+                settings: sea_orm::Set(core_domain::UserSettings::default().value()),
                 created_at: sea_orm::Set(chrono::Utc::now().naive_utc()),
                 ..Default::default()
             };

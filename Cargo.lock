@@ -9,7 +9,7 @@ dependencies = [
  "anyhow",
  "axum",
  "clap",
- "dtbox_server_core",
+ "server_core",
  "tokio",
  "tracing",
 ]
@@ -632,6 +632,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "core_db"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "core_domain",
+ "sea-orm",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "core_domain"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "cpufeatures"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -867,42 +887,6 @@ name = "dotenvy"
 version = "0.15.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1aaf95b3e5c8f23aa320147307562d361db0ae0d51242340f558153b4eb2439b"
-
-[[package]]
-name = "dtbox_core"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "sea-orm",
- "serde",
-]
-
-[[package]]
-name = "dtbox_server_core"
-version = "0.1.0"
-dependencies = [
- "alpaca_sdk",
- "anyhow",
- "argon2",
- "axum",
- "chrono",
- "dtbox_core",
- "finviz_sdk",
- "getrandom 0.2.17",
- "hex",
- "jsonwebtoken",
- "plotters",
- "reqwest",
- "sea-orm",
- "serde",
- "serde_json",
- "sha2 0.11.0",
- "tokio",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
- "uuid",
-]
 
 [[package]]
 name = "dunce"
@@ -3140,6 +3124,34 @@ dependencies = [
  "itoa",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "server_core"
+version = "0.1.0"
+dependencies = [
+ "alpaca_sdk",
+ "anyhow",
+ "argon2",
+ "axum",
+ "chrono",
+ "core_db",
+ "core_domain",
+ "finviz_sdk",
+ "getrandom 0.2.17",
+ "hex",
+ "jsonwebtoken",
+ "plotters",
+ "reqwest",
+ "sea-orm",
+ "serde",
+ "serde_json",
+ "sha2 0.11.0",
+ "tokio",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]

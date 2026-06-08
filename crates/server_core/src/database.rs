@@ -1,5 +1,5 @@
 use crate::utils::auth::{generate_random_password, hash_password};
-use dtbox_core::entity::{refresh_token, stocks, users};
+use core_db::entity::{refresh_token, stocks, users};
 use sea_orm::{
     ActiveModelTrait, ActiveValue, ColumnTrait, ConnectionTrait, Database, DatabaseConnection,
     DbBackend, DbErr, EntityTrait, PaginatorTrait, QueryFilter, Schema, Statement,
@@ -44,11 +44,11 @@ pub async fn init(db: &DatabaseConnection) -> Result<(), anyhow::Error> {
         let password_hash = hash_password(&password)?;
 
         users::ActiveModel {
-            name: ActiveValue::Set("Admin".to_string()),
+            name: ActiveValue::Set("admin".to_string()),
             avatar: ActiveValue::Set(String::new()),
             password_hash: ActiveValue::Set(password_hash),
             role: ActiveValue::Set(users::Role::Admin),
-            settings: ActiveValue::Set(serde_json::json!({})),
+            settings: ActiveValue::Set(core_domain::UserSettings::default().value()),
             created_at: ActiveValue::Set(now),
             ..Default::default()
         }
@@ -57,7 +57,7 @@ pub async fn init(db: &DatabaseConnection) -> Result<(), anyhow::Error> {
 
         println!("================================");
         println!("  Default admin created");
-        println!("  Username: Admin");
+        println!("  Username: admin");
         println!("  Password: {}", password);
         println!("================================");
     }

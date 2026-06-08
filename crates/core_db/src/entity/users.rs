@@ -33,7 +33,7 @@ impl Into<u8> for Role {
     }
 }
 
-#[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
+#[derive(Clone, Debug, DeriveEntityModel, Serialize, Deserialize)]
 #[sea_orm(table_name = "users")]
 pub struct Model {
     #[sea_orm(primary_key)]
@@ -43,7 +43,7 @@ pub struct Model {
     pub avatar: String,
     pub password_hash: String,
     pub role: Role,
-    pub settings: Json,
+    pub settings: serde_json::Value,
     pub created_at: chrono::NaiveDateTime,
 }
 
@@ -64,3 +64,16 @@ impl Related<super::refresh_token::Entity> for Entity {
 }
 
 impl ActiveModelBehavior for ActiveModel {}
+
+impl From<crate::entity::users::Model> for core_domain::result::users::InfoResult {
+    fn from(value: crate::entity::users::Model) -> Self {
+        Self {
+            id: value.id,
+            name: value.name,
+            avatar: value.avatar,
+            role: value.role.into(),
+            settings: serde_json::from_value(value.settings).unwrap_or_default(),
+            created_at: value.created_at,
+        }
+    }
+}

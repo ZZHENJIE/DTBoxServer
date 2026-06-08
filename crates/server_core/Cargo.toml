@@ -1,5 +1,5 @@
 [package]
-name = "dtbox_server_core"
+name = "server_core"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -29,6 +29,7 @@ tracing.workspace = true
 tracing-appender = "0.2.5"
 tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
 
-dtbox_core = { path = "../core" }
+core_db = { path = "../core_db" }
+core_domain = { path = "../core_domain" }
 alpaca_sdk = { path = "../alpaca_sdk" }
 finviz_sdk = { path = "../finviz_sdk" }

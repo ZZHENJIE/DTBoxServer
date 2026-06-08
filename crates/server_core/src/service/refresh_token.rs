@@ -1,4 +1,4 @@
-use dtbox_core::entity::refresh_token;
+use core_db::entity::refresh_token;
 use sea_orm::{ActiveModelTrait, ColumnTrait, EntityTrait, QueryFilter};
 
 use crate::error::ErrorCode;

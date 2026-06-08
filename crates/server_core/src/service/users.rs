@@ -1,4 +1,6 @@
-use dtbox_core::{entity::users, payload::users::UpdateUserPayload};
+use core_db::entity::users;
+use core_domain::payload::users::UpdateUserPayload;
+
 use sea_orm::{ActiveModelTrait, ColumnTrait, EntityTrait, PaginatorTrait, QueryFilter};
 
 use crate::error::ErrorCode;
@@ -51,7 +53,7 @@ impl UsersService {
                 user.name = sea_orm::Set(name);
             }
             UpdateUserPayload::Settings(settings) => {
-                user.settings = sea_orm::Set(settings);
+                user.settings = sea_orm::Set(settings.value());
             }
             UpdateUserPayload::Avatar(avatar) => {
                 user.avatar = sea_orm::Set(avatar);

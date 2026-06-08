@@ -1,5 +1,5 @@
 [package]
-name = "dtbox_core"
+name = "core_db"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -9,5 +9,8 @@ unsafe_code = "deny"
 
 [dependencies]
 serde.workspace = true
+serde_json.workspace = true
 chrono.workspace = true
 sea-orm.workspace = true
+
+core_domain = { path = "../core_domain" }

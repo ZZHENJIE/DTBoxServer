@@ -2,7 +2,7 @@ pub mod cli;
 use std::sync::Arc;
 
 use clap::Parser;
-use dtbox_server_core::{config, database, logging};
+use server_core::{config, database, logging};
 use tracing::info;
 
 #[tokio::main]
@@ -23,8 +23,8 @@ async fn main() -> anyhow::Result<()> {
     info!("Database initialization success.");
     // Build routes
     let addr = format!("{}:{}", config.server.host, config.server.port);
-    let state = dtbox_server_core::state::AppState::new(config, db);
-    let routers = dtbox_server_core::routers::export(Arc::new(state));
+    let state = server_core::state::AppState::new(config, db);
+    let routers = server_core::routers::export(Arc::new(state));
     // Start HTTP server
     let listener = tokio::net::TcpListener::bind(&addr).await?;
     info!("Server starting on {}", addr);

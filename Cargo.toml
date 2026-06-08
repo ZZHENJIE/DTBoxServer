@@ -11,7 +11,8 @@ license.workspace = true
 
 [workspace]
 members = [
-    "crates/core",
+    "crates/core_db",
+    "crates/core_domain",
     "crates/server_core",
     "crates/alpaca_sdk",
     "crates/finviz_sdk",
@@ -35,4 +36,4 @@ tracing = { workspace = true }
 axum = { workspace = true }
 tokio = { workspace = true }
 clap = { version = "4.6.1", features = ["derive"] }
-dtbox_server_core = { path = "crates/server_core" }
+server_core = { path = "crates/server_core" }

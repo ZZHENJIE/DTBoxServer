@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use axum::{Json, extract::State};
-use dtbox_core::payload;
+use core_domain::payload;
 
 use crate::{error::ErrorCode, response::APIResponse, state::AppState};
 
