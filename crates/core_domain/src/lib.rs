@@ -15,7 +15,7 @@ pub mod result {
     pub mod stocks;
     pub mod users;
 
-    #[derive(Debug, serde::Serialize)]
+    #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
     pub struct HealthResult {
         pub status: bool,
         pub version: String,
