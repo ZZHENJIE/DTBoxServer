@@ -1,0 +1,28 @@
+type: folder
+model: folder
+id: fl_ertHMPGsaq
+createdAt: 2026-06-11T20:50:09.242507
+updatedAt: 2026-06-11T20:50:09.242507
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_2TeRGhioXi
+authentication: {}
+authenticationType: null
+description: ''
+headers: []
+name: Finviz
+sortPriority: -1781211009241.0
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

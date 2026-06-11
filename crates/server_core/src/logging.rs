@@ -2,8 +2,7 @@ use tracing_appender::non_blocking;
 use tracing_subscriber::{EnvFilter, Layer, layer::SubscriberExt, util::SubscriberInitExt};
 
 pub fn setup(config: &crate::config::LoggingConfig) -> tracing_appender::non_blocking::WorkerGuard {
-    let log_filter =
-        EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new(&config.level));
+    let log_filter = EnvFilter::new(&config.level);
 
     let console_layer = tracing_subscriber::fmt::layer()
         .with_writer(std::io::stdout)

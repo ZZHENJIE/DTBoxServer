@@ -36,6 +36,18 @@ pub fn protected(state: Arc<AppState>) -> Router<Arc<AppState>> {
             routing::patch(handlers::users::change_password),
         )
         .route("/users/logout", routing::post(handlers::users::logout))
+        .route(
+            "/market/finviz/screener",
+            routing::post(handlers::market::finviz::screener),
+        )
+        .route(
+            "/market/finviz/quote",
+            routing::post(handlers::market::finviz::quote),
+        )
+        .route(
+            "/market/finviz/news",
+            routing::post(handlers::market::finviz::news),
+        )
         .layer(middleware::from_fn_with_state(
             state.clone(),
             crate::middleware::rate_limiter::export,

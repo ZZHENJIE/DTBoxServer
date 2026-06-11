@@ -1,0 +1,55 @@
+type: http_request
+model: http_request
+id: rq_V7xvz7CqVm
+createdAt: 2026-06-11T22:28:37.018866
+updatedAt: 2026-06-11T22:36:04.974072
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_ertHMPGsaq
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "Stocks":{
+        "symbol":[
+          "MSFT",
+          "AAPL"
+        ],
+        "category":"NoETF"
+      }
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: 6ViKiq98ts
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTIxNzgyOCwiaWF0IjoxNzgxMjE2OTI4fQ.Os0E2N25yMNo7Erip6fkM4n5kvKhJ3MMHa0VhGQhU1w
+  id: 8geIE47yUg
+- enabled: true
+  name: ''
+  value: ''
+  id: pTjQxpXXsR
+method: POST
+name: News
+sortPriority: 2000.002
+url: http://127.0.0.1:8080/api/market/finviz/news
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0

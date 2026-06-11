@@ -1,0 +1,51 @@
+type: http_request
+model: http_request
+id: rq_3TsmMedvfw
+createdAt: 2026-06-11T21:41:55.480923
+updatedAt: 2026-06-11T21:44:37.617128
+workspaceId: wk_fc2DZHEFUU
+folderId: fl_ertHMPGsaq
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "symbol":"TZA",
+      "interval":"Day",
+      "valid_ranges":"Max"
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: 6ViKiq98ts
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTIxNDM2MSwiaWF0IjoxNzgxMjEzNDYxfQ.O8d-aio5kgOLmmJIW0EU0UzHbKww7XP4ZBrB5kif-IA
+  id: 8geIE47yUg
+- enabled: true
+  name: ''
+  value: ''
+  id: 2346AKQJWG
+method: POST
+name: Quote
+sortPriority: 2000.001
+url: http://127.0.0.1:8080/api/market/finviz/quote
+urlParameters: []
+settingSendCookies:
+  enabled: false
+  value: true
+settingStoreCookies:
+  enabled: false
+  value: true
+settingValidateCertificates:
+  enabled: false
+  value: true
+settingFollowRedirects:
+  enabled: false
+  value: true
+settingRequestTimeout:
+  enabled: false
+  value: 0
