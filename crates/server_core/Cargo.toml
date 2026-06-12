@@ -16,7 +16,6 @@ sea-orm.workspace = true
 chrono.workspace = true
 tokio.workspace = true
 reqwest.workspace = true
-plotters = "0.3.7"
 # JWT and password hashing
 uuid = { version = "1.23.1", features = ["v4"] }
 argon2 = "0.5.3"

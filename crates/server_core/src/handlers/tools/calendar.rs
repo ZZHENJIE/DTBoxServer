@@ -1,14 +1,14 @@
 use std::sync::Arc;
 
 use axum::{Json, extract::State};
-use core_domain::payload;
+use core_domain::{payload, result};
 
 use crate::{error::ErrorCode, response::APIResponse, state::AppState};
 
 pub async fn tradingview_economic(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<payload::tools::TradingviewEconomicCalendarPayload>,
-) -> APIResponse<serde_json::Value> {
+) -> APIResponse<Vec<result::tools::TradingviewEconomicCalendarItem>> {
     match state
         .service()
         .tools
@@ -16,7 +16,7 @@ pub async fn tradingview_economic(
         .tradingview_economic(payload.from, payload.to)
         .await
     {
-        Ok(timestamp) => APIResponse::success(timestamp),
+        Ok(value) => APIResponse::success(value),
         Err(e) => ErrorCode::from(e).into(),
     }
 }

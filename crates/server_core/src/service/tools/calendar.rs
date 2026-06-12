@@ -13,7 +13,8 @@ impl CalendarService {
         &self,
         from: chrono::DateTime<chrono::Utc>,
         to: chrono::DateTime<chrono::Utc>,
-    ) -> Result<serde_json::Value, anyhow::Error> {
+    ) -> Result<Vec<core_domain::result::tools::TradingviewEconomicCalendarItem>, anyhow::Error>
+    {
         let from_str = from.format("%Y-%m-%dT%H:%M:%S%.3fZ").to_string();
         let to_str = to.format("%Y-%m-%dT%H:%M:%S%.3fZ").to_string();
         let url = format!(
@@ -38,7 +39,7 @@ impl CalendarService {
             }
 
             if let Some(result) = object.get("result") {
-                Ok(result.clone())
+                Ok(serde_json::from_value(result.clone())?)
             } else {
                 Err(anyhow::anyhow!("Result error: no result field"))
             }

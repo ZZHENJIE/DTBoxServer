@@ -13,6 +13,7 @@ pub mod user_settings;
 
 pub mod result {
     pub mod stocks;
+    pub mod tools;
     pub mod users;
 
     #[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
