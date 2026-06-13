@@ -6,9 +6,9 @@ use crate::{error::ErrorCode, response::APIResponse, state::AppState, utils};
 
 pub async fn refresh(
     State(state): State<Arc<AppState>>,
-    Extension(user_id): Extension<i32>,
+    Extension(auth): Extension<crate::AuthContext>,
 ) -> APIResponse<String> {
-    let user = match state.service().users.find_with_id(user_id).await {
+    let user = match state.service().users.find_with_id(auth.user_id).await {
         Ok(value) => value,
         Err(err) => return APIResponse::from(err),
     };

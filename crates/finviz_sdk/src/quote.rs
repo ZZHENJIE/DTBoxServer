@@ -85,7 +85,7 @@ impl Query {
 }
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
-pub struct CSVItem {
+pub struct Item {
     #[serde(rename = "Date")]
     pub date: String,
     #[serde(rename = "Open")]
@@ -100,21 +100,11 @@ pub struct CSVItem {
     pub volume: u64,
 }
 
-#[derive(Debug, serde::Serialize, serde::Deserialize, Default)]
-pub struct JSONResult {
-    pub date: Vec<String>,
-    pub open: Vec<f64>,
-    pub high: Vec<f64>,
-    pub low: Vec<f64>,
-    pub close: Vec<f64>,
-    pub volume: Vec<u64>,
-}
-
-pub async fn csv(
+pub async fn fetch(
     query: &Query,
     auth: &str,
     http_client: &reqwest::Client,
-) -> anyhow::Result<Vec<CSVItem>> {
+) -> anyhow::Result<Vec<Item>> {
     let url = query.url(auth);
     let response = http_client.get(&url).send().await?;
     let csv_data = response.text().await?;
@@ -123,27 +113,12 @@ pub async fn csv(
         .has_headers(true)
         .from_reader(csv_data.as_bytes());
 
-    let mut result: Vec<CSVItem> = Vec::new();
+    let mut result: Vec<Item> = Vec::new();
 
     for record in reader.deserialize() {
-        let item: CSVItem = record?;
+        let item: Item = record?;
         result.push(item);
     }
-
-    Ok(result)
-}
-
-pub async fn json(csv_data: Vec<CSVItem>) -> anyhow::Result<JSONResult> {
-    let mut result = JSONResult::default();
-
-    csv_data.into_iter().for_each(|item| {
-        result.date.push(item.date);
-        result.open.push(item.open);
-        result.high.push(item.high);
-        result.low.push(item.low);
-        result.close.push(item.close);
-        result.volume.push(item.volume);
-    });
 
     Ok(result)
 }

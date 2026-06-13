@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_UuZwGsXKD3
 createdAt: 2026-06-11T20:50:11.721999
-updatedAt: 2026-06-11T21:31:10.083445
+updatedAt: 2026-06-13T07:03:46.854662
 workspaceId: wk_fc2DZHEFUU
 folderId: fl_ertHMPGsaq
 authentication: {}
@@ -21,12 +21,12 @@ headers:
   id: 6ViKiq98ts
 - enabled: true
   name: authorization
-  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTIxNDM2MSwiaWF0IjoxNzgxMjEzNDYxfQ.O8d-aio5kgOLmmJIW0EU0UzHbKww7XP4ZBrB5kif-IA
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjUsImV4cCI6MTc4MTMzNTAyMSwiaWF0IjoxNzgxMzM0MTIxfQ.2vRTJfva3Z15AM8-k4-KWEfbiM5FmqnHr31wVNkQwgI
   id: 8geIE47yUg
 - enabled: true
   name: ''
   value: ''
-  id: 2346AKQJWG
+  id: zGPNsIkCuC
 method: POST
 name: Screener
 sortPriority: 2000.0

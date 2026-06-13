@@ -38,7 +38,14 @@ pub async fn export(
         return Err(APIResponse::<()>::from(ErrorCode::Unauthorized).into_response());
     }
 
-    req.extensions_mut().insert(token.user_id);
-
-    Ok(next.run(req).await)
+    match state.service().users.find_with_id(token.user_id).await {
+        Ok(user) => {
+            req.extensions_mut().insert(crate::AuthContext {
+                user_id: user.id,
+                role: user.role.into(),
+            });
+            Ok(next.run(req).await)
+        }
+        Err(err) => Err(APIResponse::<()>::from(err).into_response()),
+    }
 }

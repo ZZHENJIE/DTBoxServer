@@ -1,37 +1,38 @@
 type: http_request
 model: http_request
-id: rq_eRSYqgW6sw
-createdAt: 2026-06-05T08:30:58.377158
-updatedAt: 2026-06-13T06:26:24.807795
+id: rq_ZuNz7YZrcs
+createdAt: 2026-06-13T07:52:12.232539
+updatedAt: 2026-06-13T07:59:00.080175
 workspaceId: wk_fc2DZHEFUU
-folderId: fl_VBs9jL2uqi
+folderId: fl_T6uPeNzpnM
 authentication: {}
 authenticationType: null
 body:
   text: |-
     {
-      "type":"Avatar",
-      "value":"HelloXX"
+      "symbol":"TZA",
+      "feed":"DelayedSip",
+      "currency":"USD"
     }
 bodyType: application/json
 description: ''
 headers:
 - enabled: true
-  name: authorization
-  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTMzMjg2MCwiaWF0IjoxNzgxMzMxOTYwfQ.Tpni59JpNpENZBIqwkTeYk7Y5-L7eeMfFQwlJgziSAc
-  id: hyRvSB3buY
-- enabled: true
   name: Content-Type
   value: application/json
-  id: pEWaKr5sCT
+  id: wHtNSRvTy0
+- enabled: true
+  name: authorization
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjUsImV4cCI6MTc4MTMzODA5MSwiaWF0IjoxNzgxMzM3MTkxfQ.EZaWN9GF50P1Nf8YALH7cAX8gNO3MlEm1yI-DCVhC6I
+  id: ZnmrkACFb7
 - enabled: true
   name: ''
   value: ''
-  id: Cey7qbHwb6
-method: PATCH
-name: UpdateMe
+  id: W6ywkK0KIA
+method: POST
+name: Snapshot
 sortPriority: 2000.001
-url: http://127.0.0.1:8080/api/users/me
+url: http://127.0.0.1:8080/api/market/alpaca/snapshot
 urlParameters: []
 settingSendCookies:
   enabled: false

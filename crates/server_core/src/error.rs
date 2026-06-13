@@ -18,6 +18,7 @@ pub enum ErrorCode {
     RequestExtensions,
     TooManyRequests,
     JsonWebToken,
+    Forbidden,
 }
 
 impl From<anyhow::Error> for ErrorCode {
@@ -43,6 +44,7 @@ impl<T: Serialize> From<ErrorCode> for APIResponse<T> {
             ErrorCode::RequestExtensions => APIResponse::error(13, "Request extensions error"),
             ErrorCode::TooManyRequests => APIResponse::error(14, "Too many requests"),
             ErrorCode::JsonWebToken => APIResponse::error(15, "Json web token error"),
+            ErrorCode::Forbidden => APIResponse::error(16, "Forbidden error"),
         }
     }
 }

@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_3TsmMedvfw
 createdAt: 2026-06-11T21:41:55.480923
-updatedAt: 2026-06-11T21:44:37.617128
+updatedAt: 2026-06-13T07:03:18.425051
 workspaceId: wk_fc2DZHEFUU
 folderId: fl_ertHMPGsaq
 authentication: {}
@@ -11,8 +11,8 @@ body:
   text: |-
     {
       "symbol":"TZA",
-      "interval":"Day",
-      "valid_ranges":"Max"
+      "interval":"Minute",
+      "valid_ranges":"Day"
     }
 bodyType: application/json
 description: ''
@@ -23,12 +23,12 @@ headers:
   id: 6ViKiq98ts
 - enabled: true
   name: authorization
-  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTIxNDM2MSwiaWF0IjoxNzgxMjEzNDYxfQ.O8d-aio5kgOLmmJIW0EU0UzHbKww7XP4ZBrB5kif-IA
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjUsImV4cCI6MTc4MTMzNTAyMSwiaWF0IjoxNzgxMzM0MTIxfQ.2vRTJfva3Z15AM8-k4-KWEfbiM5FmqnHr31wVNkQwgI
   id: 8geIE47yUg
 - enabled: true
   name: ''
   value: ''
-  id: 2346AKQJWG
+  id: XJhyGdCV6J
 method: POST
 name: Quote
 sortPriority: 2000.001

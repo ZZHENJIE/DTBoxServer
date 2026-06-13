@@ -12,6 +12,12 @@ pub struct AppState {
     service: Arc<Service>,
 }
 
+#[derive(Debug, Clone)]
+pub struct AuthContext {
+    pub user_id: i32,
+    pub role: u8,
+}
+
 #[derive(Clone)]
 pub struct Service {
     pub database: sea_orm::DatabaseConnection,

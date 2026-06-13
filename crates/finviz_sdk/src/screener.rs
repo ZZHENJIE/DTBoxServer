@@ -35,7 +35,7 @@ impl Query {
 }
 
 #[derive(Debug, serde::Serialize, serde::Deserialize)]
-pub struct CSVItem {
+pub struct Item {
     #[serde(rename = "No.")]
     pub no: u64,
     #[serde(rename = "Ticker")]
@@ -60,25 +60,11 @@ pub struct CSVItem {
     pub volume: Option<u64>,
 }
 
-#[derive(Debug, serde::Serialize, serde::Deserialize, Default)]
-pub struct JSONResult {
-    pub symbol: Vec<String>,
-    pub company: Vec<String>,
-    pub sector: Vec<String>,
-    pub industry: Vec<String>,
-    pub country: Vec<String>,
-    pub market_cap: Vec<Option<f64>>,
-    pub pe_ratio: Vec<Option<f64>>,
-    pub price: Vec<Option<f64>>,
-    pub change: Vec<Option<String>>,
-    pub volume: Vec<Option<u64>>,
-}
-
-pub async fn csv(
+pub async fn fetch(
     query: &Query,
     auth: &str,
     http_client: &reqwest::Client,
-) -> anyhow::Result<Vec<CSVItem>> {
+) -> anyhow::Result<Vec<Item>> {
     let url = query.url(auth);
     let response = http_client.get(&url).send().await?;
     let csv_data = response.text().await?;
@@ -87,31 +73,12 @@ pub async fn csv(
         .has_headers(true)
         .from_reader(csv_data.as_bytes());
 
-    let mut result: Vec<CSVItem> = Vec::new();
+    let mut result: Vec<Item> = Vec::new();
 
     for record in reader.deserialize() {
-        let item: CSVItem = record?;
+        let item: Item = record?;
         result.push(item);
     }
-
-    Ok(result)
-}
-
-pub async fn json(csv_data: Vec<CSVItem>) -> anyhow::Result<JSONResult> {
-    let mut result = JSONResult::default();
-
-    csv_data.into_iter().for_each(|item| {
-        result.symbol.push(item.ticker);
-        result.company.push(item.company);
-        result.sector.push(item.sector);
-        result.industry.push(item.industry);
-        result.country.push(item.country);
-        result.market_cap.push(item.market_cap);
-        result.pe_ratio.push(item.pe_ratio);
-        result.price.push(item.price);
-        result.change.push(item.change);
-        result.volume.push(item.volume);
-    });
 
     Ok(result)
 }

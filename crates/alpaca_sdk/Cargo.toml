@@ -10,3 +10,5 @@ unsafe_code = "deny"
 [dependencies]
 serde.workspace = true
 reqwest.workspace = true
+anyhow.workspace = true
+chrono.workspace = true

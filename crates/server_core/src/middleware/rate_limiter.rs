@@ -13,8 +13,8 @@ pub async fn export(
     req: Request,
     next: Next,
 ) -> Result<impl IntoResponse, Response> {
-    if let Some(user_id) = req.extensions().get::<i32>() {
-        if !state.rate_limiter.check(user_id.clone()).await {
+    if let Some(auth) = req.extensions().get::<crate::AuthContext>() {
+        if !state.rate_limiter.check(auth.user_id).await {
             return Err(APIResponse::<()>::from(ErrorCode::TooManyRequests).into_response());
         }
         Ok(next.run(req).await)

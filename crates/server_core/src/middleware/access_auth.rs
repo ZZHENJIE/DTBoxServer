@@ -33,7 +33,10 @@ pub async fn export(
         },
     };
 
-    req.extensions_mut().insert(claims.sub);
+    req.extensions_mut().insert(crate::AuthContext {
+        user_id: claims.sub,
+        role: claims.role,
+    });
 
     Ok(next.run(req).await)
 }

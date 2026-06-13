@@ -140,9 +140,9 @@ pub async fn login(
 
 pub async fn get_me(
     State(state): State<Arc<AppState>>,
-    Extension(user_id): Extension<i32>,
+    Extension(auth): Extension<crate::AuthContext>,
 ) -> APIResponse<result::users::InfoResult> {
-    match state.service().users.find_with_id(user_id).await {
+    match state.service().users.find_with_id(auth.user_id).await {
         Ok(value) => APIResponse::success(value.into()),
         Err(err) => APIResponse::from(err),
     }
@@ -150,10 +150,10 @@ pub async fn get_me(
 
 pub async fn update_me(
     State(state): State<Arc<AppState>>,
-    Extension(user_id): Extension<i32>,
+    Extension(auth): Extension<crate::AuthContext>,
     Json(payload): Json<payload::users::UpdateUserPayload>,
 ) -> APIResponse<result::users::InfoResult> {
-    match state.service().users.update(user_id, payload).await {
+    match state.service().users.update(auth.user_id, payload).await {
         Ok(value) => APIResponse::success(value.into()),
         Err(err) => APIResponse::from(err),
     }
@@ -161,9 +161,9 @@ pub async fn update_me(
 
 pub async fn logout(
     State(state): State<Arc<AppState>>,
-    Extension(user_id): Extension<i32>,
+    Extension(auth): Extension<crate::AuthContext>,
 ) -> APIResponse<bool> {
-    match state.service().refresh_token.revoke(user_id).await {
+    match state.service().refresh_token.revoke(auth.user_id).await {
         Ok(_) => APIResponse::success(true),
         Err(err) => APIResponse::from(err),
     }
@@ -171,7 +171,7 @@ pub async fn logout(
 
 pub async fn change_password(
     State(state): State<Arc<AppState>>,
-    Extension(user_id): Extension<i32>,
+    Extension(auth): Extension<crate::AuthContext>,
     Json(payload): Json<payload::users::ChangePasswordPayload>,
 ) -> APIResponse<bool> {
     // 检查新密码是否与旧密码相同
@@ -179,7 +179,7 @@ pub async fn change_password(
         return APIResponse::from(ErrorCode::PasswordNotMatch);
     }
     // 获取用户实体
-    let user = match state.service().users.find_with_id(user_id).await {
+    let user = match state.service().users.find_with_id(auth.user_id).await {
         Ok(value) => value,
         Err(err) => return APIResponse::from(err),
     };
@@ -199,7 +199,7 @@ pub async fn change_password(
         Err(err) => return ErrorCode::from(err).into(),
     };
 
-    let _ = match state.service().refresh_token.revoke(user_id).await {
+    let _ = match state.service().refresh_token.revoke(auth.user_id).await {
         Ok(_) => {}
         Err(err) => return APIResponse::from(err),
     };
@@ -207,7 +207,7 @@ pub async fn change_password(
     match state
         .service()
         .users
-        .change_password(user_id, new_password_hash)
+        .change_password(auth.user_id, new_password_hash)
         .await
     {
         Ok(_) => APIResponse::success(true),

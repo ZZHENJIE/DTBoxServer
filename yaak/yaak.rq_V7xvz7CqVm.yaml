@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_V7xvz7CqVm
 createdAt: 2026-06-11T22:28:37.018866
-updatedAt: 2026-06-11T22:36:04.974072
+updatedAt: 2026-06-13T07:02:13.697277
 workspaceId: wk_fc2DZHEFUU
 folderId: fl_ertHMPGsaq
 authentication: {}
@@ -27,12 +27,12 @@ headers:
   id: 6ViKiq98ts
 - enabled: true
   name: authorization
-  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTIxNzgyOCwiaWF0IjoxNzgxMjE2OTI4fQ.Os0E2N25yMNo7Erip6fkM4n5kvKhJ3MMHa0VhGQhU1w
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjUsImV4cCI6MTc4MTMzNTAyMSwiaWF0IjoxNzgxMzM0MTIxfQ.2vRTJfva3Z15AM8-k4-KWEfbiM5FmqnHr31wVNkQwgI
   id: 8geIE47yUg
 - enabled: true
   name: ''
   value: ''
-  id: pTjQxpXXsR
+  id: NiF5PDnPSu
 method: POST
 name: News
 sortPriority: 2000.002
