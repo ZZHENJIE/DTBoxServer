@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_YgFJMkx4U9
 createdAt: 2026-06-04T10:57:09.311526
-updatedAt: 2026-06-05T08:49:54.595389
+updatedAt: 2026-06-13T08:02:08.874568
 workspaceId: wk_fc2DZHEFUU
 folderId: fl_VBs9jL2uqi
 authentication: {}
@@ -10,8 +10,8 @@ authenticationType: null
 body:
   text: |-
     {
-      "name":"ZHENJIE",
-      "password":"508916879"
+      "name":"admin",
+      "password":"e6796bba496b583978b892c449825b06"
     }
 bodyType: application/json
 description: ''

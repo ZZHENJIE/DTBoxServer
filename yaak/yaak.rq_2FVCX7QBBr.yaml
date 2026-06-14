@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_2FVCX7QBBr
 createdAt: 2026-06-05T03:26:19.157932
-updatedAt: 2026-06-13T06:25:38.081142
+updatedAt: 2026-06-13T08:02:24.536383
 workspaceId: wk_fc2DZHEFUU
 folderId: fl_VBs9jL2uqi
 authentication: {}
@@ -13,12 +13,12 @@ description: ''
 headers:
 - enabled: true
   name: authorization
-  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsInJvbGUiOjEsImV4cCI6MTc4MTMzMjgyNywiaWF0IjoxNzgxMzMxOTI3fQ.0IN8W9ESu48ijM7C2Kn1meBFA61wf1ihC4GcCcHd85Q
+  value: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjEsInJvbGUiOjUsImV4cCI6MTc4MTMzODYzMywiaWF0IjoxNzgxMzM3NzMzfQ.zjp15A-7ITbJR1BEh7MQ_L8PapmFxwI2XsUk7uK-ais
   id: f6rKwhdDvP
 - enabled: true
   name: ''
   value: ''
-  id: C32TMKPANp
+  id: IfJJ7E4Vai
 method: GET
 name: GetMe
 sortPriority: 2000.0

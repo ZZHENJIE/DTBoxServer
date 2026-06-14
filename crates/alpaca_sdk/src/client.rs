@@ -1,4 +1,4 @@
-use reqwest::header::{HeaderMap, HeaderValue};
+use reqwest::{Method, RequestBuilder};
 
 #[derive(Debug, Clone)]
 pub struct Client {
@@ -16,24 +16,18 @@ impl Client {
         }
     }
 
-    pub fn header(&self) -> anyhow::Result<HeaderMap> {
-        let mut map = HeaderMap::new();
-        map.insert(
-            "APCA-API-KEY-ID",
-            HeaderValue::from_str(self.api_key.as_str())?,
-        );
-        map.insert(
-            "APCA-API-SECRET-KEY",
-            HeaderValue::from_str(&self.api_secret.as_str())?,
-        );
-        map.insert("accept", HeaderValue::from_static("application/json"));
-        Ok(map)
+    pub fn request(&self, method: Method, url: &str) -> RequestBuilder {
+        self.http_client
+            .request(method, url)
+            .header("APCA-API-KEY-ID", self.api_key.as_str())
+            .header("APCA-API-SECRET-KEY", self.api_secret.as_str())
+            .header("accept", "application/json")
     }
 
     pub async fn snapshot(
         &self,
         query: &crate::SnapshotQuery,
     ) -> anyhow::Result<crate::snapshot::Response> {
-        crate::snapshot::fetch(self.http_client.get(query.url()).headers(self.header()?)).await
+        crate::snapshot::fetch(self.request(Method::GET, query.url().as_str())).await
     }
 }
